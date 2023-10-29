@@ -24,12 +24,10 @@ def gen():
     elif len(identry.get()) > 10:
         title2.configure(text="ID Too Long")
     else:
-        c = int(identry.get())
-        a = (c - (3 * (c - 1) + 2) // 14) % 14
-        if a == 0:
-            a = 14
-        b = 14 - ((15 - 3 * c) * -1) % 14
-        fc = str(c) + chr(a + ord("a") - 1) + chr(b + ord("a") - 1)
+        bbb_id = int(identry.get())
+        b = bbb_id * 11 // 14 % 14
+        c = bbb_id * 11 % 14
+        fc = str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
         if len(fc) == 10:
             title2.configure(text=(fc.upper() + " (Mobile)"))
         elif len(fc) == 11:
