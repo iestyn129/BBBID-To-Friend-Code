@@ -14,6 +14,9 @@ def get_friend_code(bbb_id: int) -> str:
     c = bbb_id * 11 % 14
     return str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
 
+def copyfc():
+    print("Copy")
+
 
 def gen():
     # title2.configure(text="no fuck you")
