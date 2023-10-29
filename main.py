@@ -15,7 +15,7 @@ def get_friend_code(bbb_id: int) -> str:
     return str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
 
 def copyfc():
-    print("Copy")
+    print("Copied")
 
 
 def gen():
