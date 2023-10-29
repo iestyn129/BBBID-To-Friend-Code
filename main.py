@@ -14,18 +14,23 @@ def get_friend_code(bbb_id: int) -> str:
     c = bbb_id * 11 % 14
     return str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
 
+
 def copyfc():
     print("Copied")
 
 
 def gen():
     # title2.configure(text="no fuck you")
+    print("Gen Clicked")
     if identry.get().isupper() or identry.get().islower():
         title2.configure(text="ID Cannot Contain Letters")
+        print("ID Has Letters")
     elif len(identry.get()) < 8:
         title2.configure(text="ID Too Short")
+        print("ID Is Too Short")
     elif len(identry.get()) > 10:
         title2.configure(text="ID Too Long")
+        print("ID Is Too Long")
     else:
         bbb_id = int(identry.get())
         b = bbb_id * 11 // 14 % 14
@@ -33,21 +38,28 @@ def gen():
         fc = str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
         if len(fc) == 10:
             title2.configure(text=(fc.upper() + " (Mobile)"))
+            print("ID Is Old Mobile")
         elif len(fc) == 11:
             if fc.startswith("1"):
                 title2.configure(text=(fc.upper() + " (Mobile)"))
+                print("ID Is New Mobile 11")
             else:
                 title2.configure(text="ID Invalid")
+                print("ID Is Invalid")
         elif len(fc) == 12:
             if fc.startswith("1"):
                 title2.configure(text=(fc.upper() + " (Mobile)"))
+                print("ID Is New Mobile 12")
             elif fc.startswith("4"):
                 title2.configure(text=(fc.upper() + " (Steam)"))
+                print("ID Is Steam")
             else:
                 title2.configure(text="ID Invalid")
+                print("ID Is Invalid")
         else:
             # title2.configure(text=(fc.upper() + " wait fuck what"))
             title2.configure(text="ID Invalid")
+            print("ID Is Invalid")
 
 
 frame = ctk.CTkFrame(master=root)
