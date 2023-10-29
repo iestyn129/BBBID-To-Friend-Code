@@ -76,6 +76,10 @@ def gen():
                 title2.configure(text=(fc.upper() + " (Steam)"))  # 💨
                 print("ID Is Steam")  # fc = 💨
                 cbutton.configure(state="normal")
+            elif fc.startswith("1"):
+                title2.configure(text=(fc.upper() + " (Mobile)"))
+                print("ID Is New Mobile 12")
+                cbutton.configure(state="normal")
             else:
                 title2.configure(text="ID Invalid")
                 print("ID Is Invalid")  # *louder asser buzzerer sounder* WRONG AGAIN IDIOT
