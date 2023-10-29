@@ -30,12 +30,15 @@ def gen():
     if identry.get().isupper() or identry.get().islower():
         title2.configure(text="ID Cannot Contain Letters")
         print("ID Has Letters")
+        print("-------------------")
     elif len(identry.get()) < 8:
         title2.configure(text="ID Too Short")
         print("ID Is Too Short")
+        print("-------------------")
     elif len(identry.get()) > 10:
         title2.configure(text="ID Too Long")
         print("ID Is Too Long")
+        print("-------------------")
     else:
         bbb_id = int(identry.get())
         b = bbb_id * 11 // 14 % 14
