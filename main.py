@@ -2,6 +2,10 @@
 import customtkinter as ctk
 # imported for copying
 import pyperclip
+# imported for checking spaces
+import re
+
+import regex
 
 # system for the mistakes that use light mode
 ctk.set_appearance_mode("System")
@@ -22,6 +26,8 @@ def get_friend_code(bbb_id: int) -> str:
     b = bbb_id * 11 // 14 % 14
     c = bbb_id * 11 % 14
     return str(bbb_id) + chr(ord("a") + b) + chr(ord("a") + c)
+
+
 # thank you zewsic 💞
 
 
@@ -30,16 +36,31 @@ def copyfc():
     pyperclip.copy(fc.upper())  # your only use in this world
     cbutton.configure(text="Copied!")
     print("-------------------")  # WALLED
+    print(12345678 * 11 % 14)
 
 
 def gen():
     # title2.configure(text="no fuck you")  # i miss this
     print("Gen Clicked")  # logging yay
     cbutton.configure(text="Copy")
+    # are there any spaces?
+    idspace = bool(re.search(r"\s", identry.get()))
     # odd way of doing but that's what stackoverflow says :shruggox:
     if identry.get().isupper() or identry.get().islower():
         title2.configure(text="ID Cannot Contain Letters")
         print("ID Has Letters")  # bills due
+        print("-------------------")  # WALLED
+    elif idspace:
+        title2.configure(text="ID Cannot Contain Spaces")
+        print("ID Has Spaces")  # what the fuck are you even typing
+        print("-------------------")  # WALLED
+    elif any(not c.isalnum() for c in identry.get()):
+        title2.configure(text="ID Cannot Contain Special Chars")
+        print("ID Has Special Chars")  # what the fuck are you even typing
+        print("-------------------")  # WALLED
+    elif len(identry.get()) == 0:
+        title2.configure(text="ID Cannot Be Blank")
+        print("ID Is Blank")  # id assume wubbox64 is short so...
         print("-------------------")  # WALLED
     elif len(identry.get()) < 8:
         title2.configure(text="ID Too Short")
