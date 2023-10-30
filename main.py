@@ -36,7 +36,6 @@ def copyfc():
     pyperclip.copy(fc.upper())  # your only use in this world
     cbutton.configure(text="Copied!")
     print("-------------------")  # WALLED
-    print(12345678 * 11 % 14)
 
 
 def gen():
